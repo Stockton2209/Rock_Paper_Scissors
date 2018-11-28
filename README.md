@@ -4,4 +4,4 @@
     The computer will randomly choose an option and the contest will be recorded as a win, loss or tie.
     All counters will be reset when the page is refreshed. Enjoy!
 ### Link to the Game:
-    
+    https://github.com/Stockton2209/Rock_Paper_Scissors.git
