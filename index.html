@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Rock, Paper, Scissors</title>
+    </head>
+
+    <body>
+
+        <h1>Welcome to the Ancient Contest Between ROCK, PAPER, and SCISSORS!<br>
+                <h2>Choose wisely...</h2>
+        </h1>
+        <br>
+        
+        <div id="Begin">
+            <p>Press r, p, or s to start playing</p>
+        </div>
+        <div id="Wins">
+            <p id="W">Wins: </p>
+        </div>
+        <div id="Losses">
+            <p id="L">Losses: </p>
+        </div>
+        <div id="Ties">
+            <p id="T">Ties: </p>
+        </div>
+
+        <!-- user makes a choice
+        computer makes a choice
+        compare the two and determine a win, loss, or tie
+        display the result to the browser -->
+    
+    <script type= "text/javascript">
+
+    //variables to hold win, lose and tie values
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+    //create an array to hold the computer's choice options
+        var compOptions = ["r", "p", "s"];
+    // create an event that triggers a function when a button is pressed
+        document.onkeyup = function(event) {
+            var userChoice = String.fromCharCode(event.keyCode).toLowerCase();
+            //console.log(userChoice);
+
+    //create a variable to hold the computer's choice
+    //generate a random pick between the choices in the array
+            //multiplying the random generator by the array length ensures the 
+            //random choice will land inside the array index
+            var computerChoice = compOptions[
+                Math.floor(Math.random()*compOptions.length)];
+            console.log(computerChoice);
+
+    //need to make some if/else statements to compare user and computer choices
+            if(userChoice == "r" || userChoice == "p" || userChoice == "s") {
+                if (userChoice == computerChoice) {
+                    //counter to update ties
+                    ties++;
+                    //query selector to update the browser page
+                    document.querySelector("#T").innerHTML = "Ties: " + ties;
+                }
+                if ((userChoice == "r") && (computerChoice == "p")) {
+                    //counter to update losses
+                    losses++;
+                    //query selector to update the browser page
+                    document.querySelector("#L").innerHTML = "Losses: " + losses;
+                }
+                if ((userChoice == "r") && (computerChoice == "s")) {
+                    //counter to update wins
+                    wins++;
+                    //query selector to update the browser page
+                    document.querySelector("#W").innerHTML = "Wins: " + wins;
+                }
+                if ((userChoice == "s") && (computerChoice == "p")) {
+                    //counter to update wins
+                    wins++;
+                    //query selector to update the browser page
+                    document.querySelector("#W").innerHTML = "Wins: " + wins;
+                }
+                if ((userChoice == "s") && (computerChoice == "r")) {
+                    //counter to update losses
+                    losses++;
+                    //query selector to update the browser page
+                    document.querySelector("#L").innerHTML = "Losses: " + losses;
+                }
+                if ((userChoice == "p") && (computerChoice == "r")) {
+                    //counter to update wins
+                    wins++;
+                    //query selector to update the browser page
+                    document.querySelector("#W").innerHTML = "Wins: " + wins;
+                }
+                if ((userChoice == "p") && (computerChoice == "s")) {
+                    //counter to update losses
+                    losses++;
+                    //query selector to update the browser page
+                    document.querySelector("#L").innerHTML = "Losses: " + losses;
+                }
+            } else {
+                alert("Please choose r, p, or s");
+            } 
+        }
+
+    
+    </script>
+    </body>
+</html>
